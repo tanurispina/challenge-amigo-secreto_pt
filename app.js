@@ -53,3 +53,11 @@ btnSortear.addEventListener("click", () => {
   listaAmigos.innerHTML = ""; // Limpa a lista
   mensagemSorteio.innerHTML = `O nome do amigo selecionado é: ${nomeSorteado}`;
 });
+
+// adicionado botao para reiniciar o jogo
+btnReiniciar.addEventListener("click", () => {
+  amigos = [];
+  listaAmigos.innerHTML = "";
+  mensagemSorteio.innerHTML = "";
+  nomeDoAmigo.value = "";
+});
