@@ -11,3 +11,31 @@ const listaAmigos = document.querySelector("#listaAmigos");
 const mensagemSorteio = document.querySelector(".result-list");
 const btnSortear = document.querySelector("#sortear");
 const btnReiniciar = document.querySelector("#reiniciar");
+
+// Adiciona nome à lista e validacao
+btnAdicionar.addEventListener("click", () => {
+  const nomeDigitado = nomeDoAmigo.value.trim();
+
+  if (nomeDigitado === "" || !isNaN(nomeDigitado)) {
+    alert("Digite um nome válido!");
+  } else if (amigos.includes(nomeDigitado)) {
+    alert("Nome duplicado!");
+  } else {
+    amigos.push(nomeDigitado);
+    atualizarLista();
+  }
+
+  // Limpa o campo de entrada sempre
+  nomeDoAmigo.value = "";
+});
+
+// Atualiza a lista na tela
+function atualizarLista() {
+  listaAmigos.innerHTML = "";
+
+  amigos.forEach((amigo) => {
+    const li = document.createElement("li");
+    li.textContent = amigo;
+    listaAmigos.appendChild(li);
+  });
+}
