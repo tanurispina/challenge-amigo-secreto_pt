@@ -39,3 +39,17 @@ function atualizarLista() {
     listaAmigos.appendChild(li);
   });
 }
+
+// Sorteia um nome e exibe o resultado
+btnSortear.addEventListener("click", () => {
+  if (amigos.length === 0) {
+    alert("Adicione amigos antes de sortear!");
+    return;
+  }
+
+  const posicaoSorteada = Math.floor(Math.random() * amigos.length);
+  const nomeSorteado = amigos[posicaoSorteada];
+
+  listaAmigos.innerHTML = ""; // Limpa a lista
+  mensagemSorteio.innerHTML = `O nome do amigo selecionado é: ${nomeSorteado}`;
+});
